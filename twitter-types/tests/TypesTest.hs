@@ -252,6 +252,7 @@ case_parseUser = withJSON fixture_user_thimura $ \obj -> do
     userStatusesCount obj @?= 24709
     userLang obj @?= "en"
     userCreatedAt obj @?= "Thu Aug 27 02:48:06 +0000 2009"
+    lastStatusCreatedAt (fromJust $ userStatus obj) @?= "Fri Aug 01 12:59:36 +0000 2014"
     userFavoritesCount obj @?= 17313
 
 case_parseList :: Assertion
@@ -277,6 +278,9 @@ prop_fromToStatus = fromToJSON
 
 prop_fromToSearchStatus :: SearchStatus -> Bool
 prop_fromToSearchStatus = fromToJSON
+
+prop_fromToLastStatus :: LastStatus -> Bool
+prop_fromToLastStatus = fromToJSON
 
 prop_fromToSearchMetadata :: SearchMetadata -> Bool
 prop_fromToSearchMetadata = fromToJSON
