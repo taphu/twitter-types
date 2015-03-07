@@ -838,7 +838,7 @@ instance ToJSON Coordinates where
 data Place =
     Place
     { placeAttributes   :: HashMap Text Text
-    , placeBoundingBox  :: BoundingBox
+    , placeBoundingBox  :: Maybe BoundingBox
     , placeCountry      :: Text
     , placeCountryCode  :: Text
     , placeFullName     :: Text
